@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard KRS Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark px-4 mb-4">
+        <span class="navbar-brand mb-0 h1">Sistem KRS Mahasiswa</span>
+        <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="alert alert-info">
+            Selamat datang, <strong>{{ nama }}</strong> (NIM: {{ nim }})
+        </div>
+
+        <div class="row">
+            <!-- Kolom Mata Kuliah Tersedia -->
+            <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">Mata Kuliah Tersedia</div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama MK</th>
+                                    <th>SKS</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for m in semua_matkul %}
+                                <tr>
+                                    <td>{{ m.kode_mk }}</td>
+                                    <td>{{ m.nama_mk }}</td>
+                                    <td>{{ m.sks }}</td>
+                                    <td>
+                                        <a href="/ambil/{{ m.id }}" class="btn btn-success btn-sm">Ambil</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Mata Kuliah yang Diambil -->
+            <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-success text-white">Mata Kuliah yang Dipilih</div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama MK</th>
+                                    <th>SKS</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for m in matkul_diambil %}
+                                <tr>
+                                    <td>{{ m.kode_mk }}</td>
+                                    <td>{{ m.nama_mk }}</td>
+                                    <td>{{ m.sks }}</td>
+                                    <td>
+                                        <a href="/hapus/{{ m.id }}" class="btn btn-danger btn-sm">Batal</a>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="4" class="text-center text-muted">Belum ada mata kuliah yang diambil.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
