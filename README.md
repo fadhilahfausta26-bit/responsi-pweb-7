@@ -3,10 +3,10 @@
 Sistem informasi berbasis web untuk pengelolaan Kartu Rencana Studi (KRS) mahasiswa yang dikembangkan menggunakan framework Python Flask dan database MariaDB/MySQL. Project ini disusun untuk memenuhi kriteria evaluasi Responsi Pekan 7 Praktikum Pemrograman Web.
 
 ## Informasi Mahasiswa
-- **Nama:** Fadhilah Fausta Alhansy
+- **Nama:** Fadhilah Fausta Alhasny
 - **NIM:** 3253111003
 - **Program Studi:** D3 Sistem Informasi
-- **Instansi:** Universitas Teknologi Yogyakarta
+  
 
 ---
 
